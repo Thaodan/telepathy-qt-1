@@ -57,6 +57,7 @@ public:
 
     // Convenient access to headers
 
+    uint sentTimestamp() const;
     QDateTime sent() const;
 
     ChannelTextMessageType messageType() const;
@@ -75,6 +76,7 @@ public:
     // Direct access to the whole message (header and body)
 
     MessagePart header() const;
+    MessagePart forwardedHeader() const;
 
     int size() const;
     MessagePart part(uint index) const;
@@ -138,6 +140,7 @@ public:
     ReceivedMessage &operator=(const ReceivedMessage &other);
     ~ReceivedMessage();
 
+    uint receivedTimestamp() const;
     QDateTime received() const;
     ContactPtr sender() const;
     QString senderNickname() const;
